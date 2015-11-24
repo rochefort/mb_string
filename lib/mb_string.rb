@@ -1,5 +1,5 @@
-require "mb_string/version"
+require 'mb_string/version'
 
 module MbString
-  # Your code goes here...
+  require 'mb_string/core_ext/string'
 end
