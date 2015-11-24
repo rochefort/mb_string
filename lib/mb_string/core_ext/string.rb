@@ -1,7 +1,6 @@
 require 'unicode/display_width'
 
 # TODO: update readme
-# TODO: is_append_right is ugly
 # TODO: stringへprivate methodを追加したくない
 class String
   def mb_ljust(width, pad_str = ' ')
@@ -18,8 +17,8 @@ class String
 
   def mb_center(width, pad_str = ' ')
     execute_mb_mthod(width) do |pad_size|
-      right_pad_size = pad_size / 2
-      left_pad_size = pad_size - right_pad_size
+      left_pad_size = pad_size / 2
+      right_pad_size = pad_size - left_pad_size
 
       right_padding = build_mb_padding(right_pad_size, pad_str)
       left_padding  = build_mb_padding(left_pad_size, pad_str, is_append_right: false)
