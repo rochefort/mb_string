@@ -1,6 +1,8 @@
 require 'unicode/display_width'
 
+# TODO: update readme
 # TODO: is_append_right is ugly
+# TODO: stringへprivate methodを追加したくない
 class String
   def mb_ljust(width, pad_str = ' ')
     self + mb_padding(width, pad_str)
@@ -43,9 +45,10 @@ class String
   # TODO: too much arguments
   def tweak_reminder(pad_str, mod, padding, is_append_right, pad_size)
     pad_str.each_char do |c|
-      if mod >= c.display_width
+      char_display_width = c.display_width
+      if mod >= char_display_width
         padding << c
-        mod -= 1
+        mod -= char_display_width
         # TODO: else return for performance with using benchmarking
       end
     end

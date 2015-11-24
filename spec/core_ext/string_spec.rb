@@ -117,12 +117,23 @@ describe 'String' do
           { object: 'あいう', inputs: [6, 'x'], expected: 'あいう' },
           { object: 'あいう', inputs: [7, 'x'], expected: 'xあいう' },
 
-          { object: 'あいう', inputs: [5, 'お'], expected: 'あいう' },
-          { object: 'あいう', inputs: [6, 'お'], expected: 'あいう' },
-          { object: 'あいう', inputs: [7, 'お'], expected: ' あいう' },
-          { object: 'あいう', inputs: [8, 'お'], expected: 'おあいう' },
-          { object: 'あいう', inputs: [9, 'お'], expected: ' おあいう' },
-          # { object: 'あいう', inputs: [10, 'お'], expected: 'あいうおお' },
+          { object: 'あいう', inputs: [5, 'え'], expected: 'あいう' },
+          { object: 'あいう', inputs: [6, 'え'], expected: 'あいう' },
+          { object: 'あいう', inputs: [7, 'え'], expected: ' あいう' },
+          { object: 'あいう', inputs: [8, 'え'], expected: 'えあいう' },
+          { object: 'あいう', inputs: [9, 'え'], expected: ' えあいう' },
+          { object: 'あいう', inputs: [10, 'え'], expected: 'ええあいう' },
+
+          { object: 'あいう', inputs: [5, 'えお'], expected: 'あいう' },
+          { object: 'あいう', inputs: [6, 'えお'], expected: 'あいう' },
+          { object: 'あいう', inputs: [7, 'えお'], expected: ' あいう' },
+          { object: 'あいう', inputs: [8, 'えお'], expected: 'えあいう' },
+          { object: 'あいう', inputs: [9, 'えお'], expected: ' えあいう' },
+          { object: 'あいう', inputs: [10, 'えお'], expected: 'えおあいう' },
+          { object: 'あいう', inputs: [11, 'えお'], expected: ' えおあいう' },
+          { object: 'あいう', inputs: [12, 'えお'], expected: 'えおえあいう' },
+          { object: 'あいう', inputs: [13, 'えお'], expected: ' えおえあいう' },
+          { object: 'あいう', inputs: [14, 'えお'], expected: 'えおえおあいう' },
         ]
         include_examples 'with_pad_str', 'mb_rjust', examples
       end
