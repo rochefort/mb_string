@@ -1,6 +1,6 @@
 # mb_string
 
-`mb_string` is extended Ruby string class for dealing multi-byte strings, add `mb_ljust`, `mb_rjust` and 'mb_center' methods.  
+`mb_string` is extended Ruby string class for dealing multi-byte strings, add `mb_ljust`, `mb_rjust` and `mb_center` methods.  
 
 ## Installation
 
