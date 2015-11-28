@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.shared_examples_for 'without_pad_str' do |method, examples|
+RSpec.shared_examples_for 'without_options' do |method, examples|
   examples.each do |example|
     input = example[:inputs]
     it "#{example[:object].inspect}.#{method}(#{input}) should return #{example[:expected].inspect}" do
@@ -9,7 +9,7 @@ RSpec.shared_examples_for 'without_pad_str' do |method, examples|
   end
 end
 
-RSpec.shared_examples_for 'with_pad_str' do |method, examples|
+RSpec.shared_examples_for 'with_options' do |method, examples|
   examples.each do |example|
     width, pad_str = example[:inputs]
     it "#{example[:object].inspect}.#{method}(#{width}, #{pad_str.inspect}) should return #{example[:expected].inspect}" do
@@ -27,7 +27,7 @@ describe 'String' do
           { object: 'abc', inputs: 3, expected: 'abc' },
           { object: 'abc', inputs: 4, expected: 'abc ' },
         ]
-        include_examples 'without_pad_str', 'mb_ljust', examples
+        include_examples 'without_options', 'mb_ljust', examples
       end
 
       context 'multibytes-strings' do
@@ -37,7 +37,7 @@ describe 'String' do
           { object: 'あいう', inputs: 7, expected: 'あいう ' },
           { object: 'あいう', inputs: 8, expected: 'あいう  ' },
         ]
-        include_examples 'without_pad_str', 'mb_ljust', examples
+        include_examples 'without_options', 'mb_ljust', examples
       end
     end
 
@@ -53,7 +53,7 @@ describe 'String' do
           { object: 'abc', inputs: [6, 'xy'], expected: 'abcxyx' },
           { object: 'abc', inputs: [7, 'xy'], expected: 'abcxyxy' },
         ]
-        include_examples 'with_pad_str', 'mb_ljust', examples
+        include_examples 'with_options', 'mb_ljust', examples
       end
 
       context 'multibytes-strings' do
@@ -69,7 +69,7 @@ describe 'String' do
           { object: 'あいう', inputs: [9, 'お'], expected: 'あいうお ' },
           { object: 'あいう', inputs: [10, 'お'], expected: 'あいうおお' },
         ]
-        include_examples 'with_pad_str', 'mb_ljust', examples
+        include_examples 'with_options', 'mb_ljust', examples
       end
     end
   end
@@ -82,7 +82,7 @@ describe 'String' do
           { object: 'abc', inputs: 3, expected: 'abc' },
           { object: 'abc', inputs: 4, expected: ' abc' },
         ]
-        include_examples 'without_pad_str', 'mb_rjust', examples
+        include_examples 'without_options', 'mb_rjust', examples
       end
 
       context 'multibytes-strings' do
@@ -92,7 +92,7 @@ describe 'String' do
           { object: 'あいう', inputs: 7, expected: ' あいう' },
           { object: 'あいう', inputs: 8, expected: '  あいう' },
         ]
-        include_examples 'without_pad_str', 'mb_rjust', examples
+        include_examples 'without_options', 'mb_rjust', examples
       end
     end
 
@@ -108,7 +108,7 @@ describe 'String' do
           { object: 'abc', inputs: [6, 'xy'], expected: 'xyxabc' },
           { object: 'abc', inputs: [7, 'xy'], expected: 'xyxyabc' },
         ]
-        include_examples 'with_pad_str', 'mb_rjust', examples
+        include_examples 'with_options', 'mb_rjust', examples
       end
 
       context 'multibytes-strings' do
@@ -135,7 +135,7 @@ describe 'String' do
           { object: 'あいう', inputs: [13, 'えお'], expected: ' えおえあいう' },
           { object: 'あいう', inputs: [14, 'えお'], expected: 'えおえおあいう' },
         ]
-        include_examples 'with_pad_str', 'mb_rjust', examples
+        include_examples 'with_options', 'mb_rjust', examples
       end
     end
   end
@@ -150,7 +150,7 @@ describe 'String' do
           { object: 'abc', inputs: 5, expected: ' abc ' },
           { object: 'abc', inputs: 6, expected: ' abc  ' },
         ]
-        include_examples 'without_pad_str', 'mb_center', examples
+        include_examples 'without_options', 'mb_center', examples
       end
     end
 
@@ -161,7 +161,7 @@ describe 'String' do
         { object: 'あいう', inputs: 7, expected: 'あいう ' },
         { object: 'あいう', inputs: 8, expected: ' あいう ' },
       ]
-      include_examples 'without_pad_str', 'mb_center', examples
+      include_examples 'without_options', 'mb_center', examples
     end
   end
 
@@ -180,7 +180,7 @@ describe 'String' do
         { object: 'abc', inputs: [8, 'xy'], expected: 'xyabcxyx' },
         { object: 'abc', inputs: [9, 'xy'], expected: 'xyxabcxyx' },
       ]
-      include_examples 'with_pad_str', 'mb_center', examples
+      include_examples 'with_options', 'mb_center', examples
     end
 
     context 'multibytes-strings' do
@@ -209,7 +209,33 @@ describe 'String' do
         { object: 'あいう', inputs: [13, 'えお'], expected: ' えあいうえお' },
         { object: 'あいう', inputs: [14, 'えお'], expected: 'えおあいうえお' },
       ]
-      include_examples 'with_pad_str', 'mb_center', examples
+      include_examples 'with_options', 'mb_center', examples
+    end
+  end
+
+  describe '#mb_truncate' do
+    context 'without omission' do
+      context 'ascii-strings' do
+        examples = [
+          { object: 'abc',   inputs: 2, expected: '...' },
+          { object: 'abc',   inputs: 3, expected: 'abc' },
+          { object: 'abcde', inputs: 3, expected: '...' },
+          { object: 'abcde', inputs: 4, expected: 'a...' },
+          { object: 'abcde', inputs: 5, expected: 'abcde' },
+        ]
+        include_examples 'without_options', 'mb_truncate', examples
+      end
+    end
+
+    context 'multibytes-strings' do
+      examples = [
+        { object: 'あいう', inputs: 2, expected: '...' },
+        { object: 'あいう', inputs: 3, expected: '...' },
+        { object: 'あいう', inputs: 4, expected: '...' },
+        { object: 'あいう', inputs: 5, expected: 'あ...' },
+        { object: 'あいう', inputs: 6, expected: 'あいう' },
+      ]
+      include_examples 'without_options', 'mb_truncate', examples
     end
   end
 end

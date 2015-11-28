@@ -1,4 +1,6 @@
 require 'unicode/display_width'
+# TODO: asciiかどうか判定する？
+# TODO: circle ci
 
 class String
   def mb_ljust(width, pad_str = ' ')
@@ -23,6 +25,26 @@ class String
 
       left_padding + self + right_padding
     end
+  end
+
+  def mb_truncate(truncate_at, options = {})
+    return dup unless display_width > truncate_at
+
+    omission = options[:omission] || '...'
+    length_with_room_for_omission = truncate_at - omission.display_width
+
+    size = 0
+    slice = ''
+    each_char do |c|
+      char_size = c.display_width
+      if size + char_size > length_with_room_for_omission
+        slice << omission
+        break
+      end
+      size += char_size
+      slice << c
+    end
+    slice
   end
 
   private
