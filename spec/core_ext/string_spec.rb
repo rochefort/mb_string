@@ -238,6 +238,37 @@ describe 'String' do
       end
     end
 
+    context 'with omission' do
+      context 'ascii-strings' do
+        examples = [
+          { object: 'abc', inputs: [2, omission: 'xy'], expected: 'xy' },
+          { object: 'abc', inputs: [3, omission: 'xy'], expected: 'abc' },
+          { object: 'abc', inputs: [4, omission: 'xy'], expected: 'abc' },
+          { object: 'abcde', inputs: [3, omission: 'xy'], expected: 'axy' },
+          { object: 'abcde', inputs: [4, omission: 'xy'], expected: 'abxy' },
+          { object: 'abcde', inputs: [5, omission: 'xy'], expected: 'abcde' },
+          { object: 'abcde', inputs: [6, omission: 'xy'], expected: 'abcde' },
+        ]
+        include_examples 'with_options', 'mb_truncate', examples
+      end
+
+      context 'multibytes-strings' do
+        examples = [
+          { object: 'あいう', inputs: [2, omission: 'わを'], expected: 'わを' },
+          { object: 'あいう', inputs: [3, omission: 'わを'], expected: 'わを' },
+          { object: 'あいう', inputs: [4, omission: 'わを'], expected: 'わを' },
+          { object: 'あいう', inputs: [5, omission: 'わを'], expected: 'わを' },
+          { object: 'あいう', inputs: [6, omission: 'わを'], expected: 'あいう' },
+          { object: 'あいう', inputs: [7, omission: 'わを'], expected: 'あいう' },
+
+          { object: 'あいうえお', inputs: [4, omission: 'わを'], expected: 'わを' },
+          { object: 'あいうえお', inputs: [5, omission: 'わを'], expected: 'わを' },
+          { object: 'あいうえお', inputs: [6, omission: 'わを'], expected: 'あわを' },
+          { object: 'あいうえお', inputs: [7, omission: 'わを'], expected: 'あわを' },
+          { object: 'あいうえお', inputs: [8, omission: 'わを'], expected: 'あいわを' },
+        ]
+        include_examples 'with_options', 'mb_truncate', examples
+      end
     end
   end
 end
