@@ -225,17 +225,19 @@ describe 'String' do
         ]
         include_examples 'without_options', 'mb_truncate', examples
       end
+
+      context 'multibytes-strings' do
+        examples = [
+          { object: 'あいう', inputs: 2, expected: '...' },
+          { object: 'あいう', inputs: 3, expected: '...' },
+          { object: 'あいう', inputs: 4, expected: '...' },
+          { object: 'あいう', inputs: 5, expected: 'あ...' },
+          { object: 'あいう', inputs: 6, expected: 'あいう' },
+        ]
+        include_examples 'without_options', 'mb_truncate', examples
+      end
     end
 
-    context 'multibytes-strings' do
-      examples = [
-        { object: 'あいう', inputs: 2, expected: '...' },
-        { object: 'あいう', inputs: 3, expected: '...' },
-        { object: 'あいう', inputs: 4, expected: '...' },
-        { object: 'あいう', inputs: 5, expected: 'あ...' },
-        { object: 'あいう', inputs: 6, expected: 'あいう' },
-      ]
-      include_examples 'without_options', 'mb_truncate', examples
     end
   end
 end
