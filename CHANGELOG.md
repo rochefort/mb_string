@@ -1,3 +1,6 @@
+## 0.1.3 (Tue Dec 2 2015)
+* Improve performance [78c2ae7]
+
 ## 0.1.2 (Tue Dec 1 2015)
 * Add `mb_truncate` method [099f432]
 
