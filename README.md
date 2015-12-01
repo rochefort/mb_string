@@ -2,6 +2,11 @@
 
 `mb_string` is extended Ruby string class for dealing multi-byte strings, add `mb_ljust`, `mb_rjust`, `mb_center` and `mb_truncate` methods.  
 
+## Requirements
+
+Ruby versions is earlier than 2.0.
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
