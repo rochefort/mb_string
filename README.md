@@ -1,5 +1,6 @@
 [![Build Status](http://img.shields.io/travis/rochefort/mb_string.svg?style=flat)](http://travis-ci.org/rochefort/mb_string)
 [![Dependency Status](http://img.shields.io/gemnasium/rochefort/mb_string.svg?style=flat)](https://gemnasium.com/rochefort/mb_string)
+[![Coverage Status](http://img.shields.io/coveralls/rochefort/mb_string.svg?style=flat)](https://coveralls.io/r/rochefort/mb_string)
 [![Code Climate](http://img.shields.io/codeclimate/github/rochefort/mb_string.svg?style=flat)](https://codeclimate.com/github/rochefort/mb_string)
 [![Gem Version](http://img.shields.io/gem/v/mb_string.svg?style=flat)](http://badge.fury.io/rb/mb_string)
 
