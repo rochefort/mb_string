@@ -1,7 +1,5 @@
 require 'unicode/display_width'
 # TODO: asciiかどうか判定する？
-# TODO: circle ci
-
 class String
   def mb_ljust(width, pad_str = ' ')
     mb_execute(width) do |pad_size|
