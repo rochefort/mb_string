@@ -1,19 +1,21 @@
 require 'unicode/display_width'
-# TODO: asciiかどうか判定する？
 class String
   def mb_ljust(width, pad_str = ' ')
+    return ljust(width, pad_str) if ascii_only? && pad_str.ascii_only?
     mb_execute(width) do |pad_size|
       self + mb_build_padding(pad_size, pad_str)
     end
   end
 
   def mb_rjust(width, pad_str = ' ')
+    return rjust(width, pad_str) if ascii_only? && pad_str.ascii_only?
     mb_execute(width) do |pad_size|
       mb_build_padding(pad_size, pad_str, is_append_right: false) + self
     end
   end
 
   def mb_center(width, pad_str = ' ')
+    return center(width, pad_str) if ascii_only? && pad_str.ascii_only?
     mb_execute(width) do |pad_size|
       left_pad_size = pad_size / 2
       right_pad_size = pad_size - left_pad_size
