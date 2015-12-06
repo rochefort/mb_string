@@ -1,3 +1,6 @@
+## 0.1.4 (Sun Dec 6 2015)
+* Update gem [c95cfa6]
+
 ## 0.1.3 (Tue Dec 2 2015)
 * Improve performance [78c2ae7]
 
