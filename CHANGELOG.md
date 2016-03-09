@@ -1,3 +1,6 @@
+## 0.1.5 (Thu Mar 10 2016)
+* Update gem [c309111]
+
 ## 0.1.4 (Sun Dec 6 2015)
 * Update gem [c95cfa6]
 
