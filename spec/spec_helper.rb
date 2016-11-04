@@ -16,14 +16,14 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require 'coveralls'
+require "coveralls"
 Coveralls.wear!
-require 'simplecov'
-require 'codeclimate-test-reporter'
-dir = File.join(ENV['CIRCLE_ARTIFACTS'] || 'coverage')
+require "simplecov"
+require "codeclimate-test-reporter"
+dir = File.join(ENV["CIRCLE_ARTIFACTS"] || "coverage")
 SimpleCov.coverage_dir(dir)
 SimpleCov.start do
-  add_filter '/spec/'
+  add_filter "/spec/"
 
   formatter SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::HTMLFormatter,
@@ -32,7 +32,7 @@ SimpleCov.start do
   ])
 end
 
-require 'mb_string'
+require "mb_string"
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
