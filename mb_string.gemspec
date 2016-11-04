@@ -19,13 +19,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "unicode-display_width", "~> 1.0.3"
+  spec.add_dependency "unicode-display_width", "~> 1.1.1"
 
   spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 11.1.2"
-  spec.add_development_dependency "rspec", "~> 3.4.0"
-  spec.add_development_dependency "simplecov", "~> 0.11.0"
+  spec.add_development_dependency "rake", "~> 11.3.0"
+  spec.add_development_dependency "rspec", "~> 3.5.0"
+  spec.add_development_dependency "simplecov", "~> 0.12.0"
 
-  spec.add_development_dependency "coveralls"
+  spec.add_development_dependency "coveralls", "~> 0.8.15"
   spec.add_development_dependency "codeclimate-test-reporter"
 end
