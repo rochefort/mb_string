@@ -1,4 +1,7 @@
 ## 0.1.5 (Thu Apr 1 2016)
+* Update gems [fe2a3a2]
+
+## 0.1.5 (Thu Apr 1 2016)
 * Update gem [df4c549]
 
 ## 0.1.5 (Thu Mar 10 2016)
