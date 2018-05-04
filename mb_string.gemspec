@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", "~> 11.3.0"
-  spec.add_development_dependency "rspec", "~> 3.5.0"
+  spec.add_development_dependency "rspec", "~> 3.7.0"
   spec.add_development_dependency "simplecov", "~> 0.12.0"
 
   spec.add_development_dependency "coveralls", "~> 0.8.19"
