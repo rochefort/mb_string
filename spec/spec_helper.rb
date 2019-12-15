@@ -19,7 +19,6 @@
 require "coveralls"
 Coveralls.wear!
 require "simplecov"
-require "codeclimate-test-reporter"
 dir = File.join(ENV["CIRCLE_ARTIFACTS"] || "coverage")
 SimpleCov.coverage_dir(dir)
 SimpleCov.start do
@@ -27,7 +26,6 @@ SimpleCov.start do
 
   formatter SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::HTMLFormatter,
-    CodeClimate::TestReporter::Formatter,
     Coveralls::SimpleCov::Formatter
   ])
 end
