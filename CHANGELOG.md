@@ -1,10 +1,13 @@
-## 0.1.5 (Mon Jul 17 2016)
+## 0.1.9 Sun Dec 15)
+* Update gems [3966c1a]
+
+## 0.1.8 (Mon Jul 17 2016)
 * Update gems [16a55fe]
 
-## 0.1.5 (Thu Apr 1 2016)
+## 0.1.7 (Thu Apr 1 2016)
 * Update gems [fe2a3a2]
 
-## 0.1.5 (Thu Apr 1 2016)
+## 0.1.6 (Thu Apr 1 2016)
 * Update gem [df4c549]
 
 ## 0.1.5 (Thu Mar 10 2016)
