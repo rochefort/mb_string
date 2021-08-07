@@ -1,3 +1,6 @@
+## 0.2.0 Sun Aug  8)
+* Update gems (unicode-display_with) [75f4033]
+
 ## 0.1.9 Sun Dec 15)
 * Update gems [3966c1a]
 
