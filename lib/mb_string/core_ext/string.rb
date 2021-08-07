@@ -1,4 +1,5 @@
 require "unicode/display_width"
+require "unicode/display_width/string_ext"
 class String
   def mb_ljust(width, pad_str = " ")
     return ljust(width, pad_str) if ascii_only? && pad_str.ascii_only?
